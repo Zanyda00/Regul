@@ -16,7 +16,7 @@ def format_contacts_list(cont_list):
 
     for i in cont_list:
         con_str = ','.join(i)
-        pattern = r'^(\w+)[,\s](\w+)?[,\s](\w+)?(,+)(\w+)?(,+)(\w+\D+)?(,+)(.+)?(,+)(.+@.+)?'
+        pattern = r'^(\w+)[,\s](\w+)?[,\s](\w+)?(,+)(\w+)?(,+)(\w+[^,]+)?(,+)(.+)?(,+)(.+@.+)?'
         repl = r'\1,\2,\3,\5,\7,\9,\11'
         result = re.sub(pattern, repl, con_str)
         format_position_list.append(result.split(','))
